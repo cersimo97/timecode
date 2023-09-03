@@ -1,0 +1,51 @@
+{
+  "name": "timecode",
+  "displayName": "TimeCode",
+  "description": "TimeCode is a Visual Studio Code extension that tracks and displays time spent on each file in your workspace, helping you manage productivity.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "workspaceContains:*.code-workspace"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": {
+      "command": "extension.openFileFromLeaderboard",
+      "title": "Open File from Leaderboard"
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "leaderboard",
+          "name": "Leaderboard"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.81.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
